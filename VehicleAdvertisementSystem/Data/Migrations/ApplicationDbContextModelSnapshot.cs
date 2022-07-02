@@ -252,6 +252,7 @@ namespace VehicleAdvertisementSystem.Data.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
+                        .HasMaxLength(2147483647)
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("VehicleId")
@@ -275,7 +276,8 @@ namespace VehicleAdvertisementSystem.Data.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("Id");
 
@@ -292,7 +294,8 @@ namespace VehicleAdvertisementSystem.Data.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("Id");
 
@@ -309,7 +312,8 @@ namespace VehicleAdvertisementSystem.Data.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("Id");
 
@@ -326,7 +330,8 @@ namespace VehicleAdvertisementSystem.Data.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("Id");
 
@@ -343,6 +348,7 @@ namespace VehicleAdvertisementSystem.Data.Migrations
 
                     b.Property<string>("ImageUrl")
                         .IsRequired()
+                        .HasMaxLength(2147483647)
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("VehicleId")
@@ -365,7 +371,8 @@ namespace VehicleAdvertisementSystem.Data.Migrations
 
                     b.Property<string>("Type")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.HasKey("Id");
 
@@ -385,7 +392,8 @@ namespace VehicleAdvertisementSystem.Data.Migrations
 
                     b.Property<string>("Color")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<int>("ConditionStatusId")
                         .HasColumnType("int");
@@ -401,7 +409,8 @@ namespace VehicleAdvertisementSystem.Data.Migrations
 
                     b.Property<string>("Make")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<DateTime>("ManifactureDate")
                         .HasColumnType("datetime2");
@@ -411,7 +420,8 @@ namespace VehicleAdvertisementSystem.Data.Migrations
 
                     b.Property<string>("Model")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<bool>("NewImportation")
                         .HasColumnType("bit");
@@ -461,6 +471,7 @@ namespace VehicleAdvertisementSystem.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("Name")
+                        .HasMaxLength(20)
                         .HasColumnType("int");
 
                     b.HasKey("Id");
