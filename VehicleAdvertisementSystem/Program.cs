@@ -3,6 +3,7 @@ namespace VehicleAdvertisementSystem
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
     using VehicleAdvertisementSystem.Data;
+    using Infrastructure;
 
     public class Program
     {
@@ -26,6 +27,8 @@ namespace VehicleAdvertisementSystem
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
+
+            app.PrepareDatabase();
 
             if (app.Environment.IsDevelopment())
                 app.UseMigrationsEndPoint();
