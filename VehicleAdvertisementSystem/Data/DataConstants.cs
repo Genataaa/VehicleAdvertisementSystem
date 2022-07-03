@@ -41,9 +41,6 @@
         //Fuel
         public const int FuelNameMaxLength = 20;
 
-        //Image
-        public const int ImageUrlMaxLength = int.MaxValue;
-
         //Transmission
         public const int TransmissionTypeMaxLength = 30;
 

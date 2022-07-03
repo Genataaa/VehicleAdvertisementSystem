@@ -7,11 +7,10 @@
         public int Id { get; set; }
 
         [Required]
-        [StringLength(DataConstants.ImageUrlMaxLength)]
         public string ImageUrl { get; init; }
 
-        public int VehicleId { get; set; }
+        public int AdvertismentId { get; set; }
 
-        public Advertisment Vehicle { get; set; }
+        public Advertisment Advertisment { get; set; }
     }
 }

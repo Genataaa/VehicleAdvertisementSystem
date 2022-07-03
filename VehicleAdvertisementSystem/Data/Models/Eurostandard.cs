@@ -5,7 +5,7 @@
     public class Eurostandard
     {
         public Eurostandard()
-            => this.Vehicles = new HashSet<Advertisment>();
+            => this.Advertisments = new HashSet<Advertisment>();
 
         public int Id { get; set; }
 
@@ -13,6 +13,6 @@
         [StringLength(DataConstants.EurostandardNameMaxLength)]
         public string Name { get; set; }
 
-        ICollection<Advertisment> Vehicles { get; set; }
+        ICollection<Advertisment> Advertisments { get; set; }
     }
 }
