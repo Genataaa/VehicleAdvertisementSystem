@@ -3,29 +3,6 @@
     public class DataConstants
     {
         //Advertisment
-        public const int DescriptionMinLength = 20;
-
-        public const int DescriptionMaxLength = int.MaxValue;
-
-        //ConditionStatus
-        public const int ConditionNameMaxLength = 20;
-
-        //Eurostandard
-        public const int EurostandardNameMaxLength = 20;
-
-        //Extra
-        public const int ExtraNameMaxLength = 20;
-
-        //Fuel
-        public const int FuelNameMaxLength = 20;
-
-        //Image
-        public const int ImageUrlMaxLength = int.MaxValue;
-
-        //Transmission
-        public const int TransmissionTypeMaxLength = 30;
-
-        //Vehicle
         public const int VehicleMakeMaxLength = 30;
 
         public const int VehicleModelMaxLength = 30;
@@ -47,6 +24,28 @@
         public const int VehicleMaxSeatsNumber = 50;
 
         public const int VehicleColorMaxLength = 20;
+
+        public const int DescriptionMinLength = 20;
+
+        public const int DescriptionMaxLength = int.MaxValue;
+
+        //ConditionStatus
+        public const int ConditionNameMaxLength = 20;
+
+        //Eurostandard
+        public const int EurostandardNameMaxLength = 20;
+
+        //Extra
+        public const int ExtraNameMaxLength = 20;
+
+        //Fuel
+        public const int FuelNameMaxLength = 20;
+
+        //Image
+        public const int ImageUrlMaxLength = int.MaxValue;
+
+        //Transmission
+        public const int TransmissionTypeMaxLength = 30;
 
         //VehicleType
         public const int VehicleTypeMaxNameLength = 20;

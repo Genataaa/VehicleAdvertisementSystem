@@ -5,7 +5,7 @@
     public class VehicleType
     {
         public VehicleType()
-            => this.Vehicles = new HashSet<Vehicle>();
+            => this.Vehicles = new HashSet<Advertisment>();
 
         public int Id { get; set; }
 
@@ -14,6 +14,6 @@
 
         public int Name { get; set; }
 
-        public ICollection<Vehicle> Vehicles { get; set; }
+        public ICollection<Advertisment> Vehicles { get; set; }
     }
 }

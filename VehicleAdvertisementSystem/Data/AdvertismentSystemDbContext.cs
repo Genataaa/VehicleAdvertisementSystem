@@ -11,8 +11,6 @@
         {
         }
 
-        public DbSet<Advertisment> Advertisments { get; set; }
-
         public DbSet<ConditionStatus> ConditionStatuses { get; set; }
 
         public DbSet<Eurostandard> Eurostandards { get; set; }
@@ -25,18 +23,8 @@
 
         public DbSet<Transmission> Transmissions { get; set; }
 
-        public DbSet<Vehicle> Vehicles { get; set; }
+        public DbSet<Advertisment> Advertisments { get; set; }
 
         public DbSet<VehicleType> VehicleTypes { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-            builder.Entity<Advertisment>()
-                .HasOne(v => v.Vehicle)
-                .WithOne(a => a.Advertisment)
-                .HasForeignKey<Vehicle>(x => x.AdvertismentId);
-
-            base.OnModelCreating(builder);
-        }
     }
 }

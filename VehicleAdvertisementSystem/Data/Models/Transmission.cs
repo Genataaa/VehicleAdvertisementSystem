@@ -5,7 +5,7 @@ namespace VehicleAdvertisementSystem.Data.Models
     public class Transmission
     {
         public Transmission()
-            => this.Vehicles = new HashSet<Vehicle>();
+            => this.Vehicles = new HashSet<Advertisment>();
 
         public int Id { get; set; }
 
@@ -13,6 +13,6 @@ namespace VehicleAdvertisementSystem.Data.Models
         [StringLength(DataConstants.TransmissionTypeMaxLength)]
         public string Type { get; set; }
 
-        public ICollection<Vehicle> Vehicles { get; set; }
+        public ICollection<Advertisment> Vehicles { get; set; }
     }
 }

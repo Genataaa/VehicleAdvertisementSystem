@@ -5,7 +5,7 @@
     public class ConditionStatus
     {
         public ConditionStatus()
-            => this.Vehicles = new HashSet<Vehicle>();
+            => this.Vehicles = new HashSet<Advertisment>();
 
         public int Id { get; set; }
 
@@ -13,6 +13,6 @@
         [StringLength(DataConstants.ConditionNameMaxLength)]
         public string Name { get; set; }
 
-        public ICollection<Vehicle> Vehicles { get; set; }
+        public ICollection<Advertisment> Vehicles { get; set; }
     }
 }

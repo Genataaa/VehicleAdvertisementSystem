@@ -12,6 +12,6 @@
 
         public int VehicleId { get; set; }
 
-        public Vehicle Vehicle { get; set; }
+        public Advertisment Vehicle { get; set; }
     }
 }
