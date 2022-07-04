@@ -29,6 +29,7 @@ namespace VehicleAdvertisementSystem
             var app = builder.Build();
 
             app.PrepareDatabase();
+            
 
             if (app.Environment.IsDevelopment())
                 app.UseMigrationsEndPoint();

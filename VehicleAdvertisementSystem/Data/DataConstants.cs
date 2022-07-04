@@ -36,7 +36,7 @@
         public const int EurostandardNameMaxLength = 20;
 
         //Extra
-        public const int ExtraNameMaxLength = 20;
+        public const int ExtraNameMaxLength = 40;
 
         //Fuel
         public const int FuelNameMaxLength = 20;

@@ -11,8 +11,7 @@
 
         [Required]
         [StringLength(DataConstants.VehicleTypeMaxNameLength)]
-
-        public int Name { get; set; }
+        public string Name { get; set; }
 
         public ICollection<Advertisment> Advertisments { get; set; }
     }

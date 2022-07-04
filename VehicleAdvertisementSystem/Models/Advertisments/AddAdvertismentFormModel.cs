@@ -35,6 +35,5 @@
         public bool NewImportation { get; init; }
 
         public string Description { get; init; }
-
     }
 }
