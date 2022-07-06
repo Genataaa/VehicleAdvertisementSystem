@@ -46,6 +46,7 @@
             {
                 data.Eurostandards.AddRange(new[]
                 {
+                    new Eurostandard { Name = "None"},
                     new Eurostandard { Name = "Euro 1"},
                     new Eurostandard { Name = "Euro 2"},
                     new Eurostandard { Name = "Euro 3"},

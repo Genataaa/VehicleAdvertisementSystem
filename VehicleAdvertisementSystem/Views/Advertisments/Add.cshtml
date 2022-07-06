@@ -2,91 +2,101 @@
 
 <form method="post" class="row g-3">
     <H3>Add Advertisment</H3>
-  <div class="col-md-2">
-    <label  asp-for="VehicleTypeId" class="form-label">Vehicle Type</label>
-    <select id="inputState" class="form-select">
-      <option selected>Choose...</option>
-      <option>...</option>
-    </select>
-  </div>
-  <div class="col-md-2">
-    <label  asp-for="ConditionStatusId" class="form-label">Condition Status</label>
-    <select id="inputState" class="form-select">
-      <option selected>Choose...</option>
-      <option>...</option>
-    </select>
-  </div>
-  <div class="col-md-4">
-    <label asp-for="Make" class="form-label">Make</label>
-    <input asp-for="Make" class="form-control">
-  </div>
-  <div class="col-md-4">
-    <label asp-for="Model" class="form-label">Model</label>
-    <input asp-for="Model" class="form-control">
-  </div>
-  <div class="col-md-2">
-    <label asp-for="Mileage" class="form-label">Mileage</label>
-    <input asp-for="Mileage" class="form-control">
-  </div>
-    <div class="col-md-1">
-    <label asp-for="Price" class="form-label">Price</label>
-    <input asp-for="Price" class="form-control">
-  </div>
-  <div class="col-md-3">
-    <label  asp-for="TransmissionId" class="form-label">Transmission Type</label>
-    <select id="inputState" class="form-select">
-      <option selected>Choose...</option>
-      <option>...</option>
-    </select>
-  </div>
-  <div class="col-md-3">
-    <label  asp-for="FuelId" class="form-label">Fuel</label>
-    <select id="inputState" class="form-select">
-      <option selected>Choose...</option>
-      <option>...</option>
-    </select>
-  </div>
-  <div class="col-md-1">
-    <label asp-for="Power" class="form-label">Power</label>
-    <input asp-for="Power" class="form-control">
-  </div>
     <div class="col-md-2">
-    <label asp-for="CubicCapacity" class="form-label">Cubic Capacity</label>
-    <input asp-for="CubicCapacity" class="form-control">
-  </div>
-  <div class="col-md-1">
-    <label asp-for="NumberOfDoors" class="form-label">Doors</label>
-    <input asp-for="NumberOfDoors" class="form-control">
-  </div>
-  <div class="col-md-1">
-    <label asp-for="NumberOfSeats" class="form-label">Seats</label>
-    <input asp-for="NumberOfSeats" class="form-control">
-  </div>
-    <div class="col-md-4">
-    <label asp-for="Color" class="form-label">Color</label>
-    <input asp-for="Color" class="form-control">
-  </div>
-    <div class="col-md-3">
-    <label  asp-for="EurostandardId" class="form-label">Eurostandard</label>
-    <select id="inputState" class="form-select">
-      <option selected>Choose...</option>
-      <option>...</option>
-    </select>
-  </div>
-    <div class="col-12">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox">
-      <label class="form-check-label" for="gridCheck">
-        New importation?
-      </label>
+        <label asp-for="VehicleTypeId" class="form-label"></label>
+        <select asp-for="VehicleTypeId" class="form-select">
+            @foreach (var vehicleType in Model.VehicleTypes)
+            {
+                <option value="@vehicleType.Id">@vehicleType.Name</option>
+            }
+        </select>
     </div>
-  </div>
-  <div class="col-12">
-<div class="mb-3">
-  <label asp-for="Description" class="form-label">Vehicle Description</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-</div>
-  <div class="col-12">
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </div>
+    <div class="col-md-2">
+        <label asp-for="ConditionStatusId" class="form-label"></label>
+        <select asp-for="ConditionStatusId" class="form-select">
+            @foreach (var conditionStatus in Model.ConditionStatuses)
+            {
+                <option value="@conditionStatus.Id">@conditionStatus.Name </option>
+            }
+        </select>
+    </div>
+    <div class="col-md-4">
+        <label asp-for="Make" class="form-label">Make</label>
+        <input asp-for="Make" class="form-control">
+    </div>
+    <div class="col-md-4">
+        <label asp-for="Model" class="form-label">Model</label>
+        <input asp-for="Model" class="form-control">
+    </div>
+    <div class="col-md-2">
+        <label asp-for="Mileage" class="form-label" class="">Mileage</label>
+        <input asp-for="Mileage" class="form-control">
+    </div>
+    <div class="col-md-1">
+        <label asp-for="Price" class="form-label">Price</label>
+        <input asp-for="Price" class="form-control">
+    </div>
+    <div class="col-md-3">
+        <label asp-for="TransmissionId" class="form-label"></label>
+        <select asp-for="TransmissionId" class="form-select">
+            @foreach (var transmissionType in Model.TransmissionTypes)
+            {
+                <option value="@transmissionType.Id">@transmissionType.Type</option>
+            }
+        </select>
+    </div>
+    <div class="col-md-3">
+        <label asp-for="FuelId" class="form-label"></label>
+        <select asp-for="FuelId" class="form-select">
+            @foreach (var fuelType in Model.FuelTypes)
+            {
+                <option value="@fuelType.Id">@fuelType.Name </option>
+            }
+        </select>
+    </div>
+    <div class="col-md-1">
+        <label asp-for="Power" class="form-label">Power</label>
+        <input asp-for="Power" class="form-control">
+    </div>
+    <div class="col-md-2">
+        <label asp-for="CubicCapacity" class="form-label">Cubic Capacity</label>
+        <input asp-for="CubicCapacity" class="form-control">
+    </div>
+    <div class="col-md-1">
+        <label asp-for="NumberOfDoors" class="form-label">Doors</label>
+        <input asp-for="NumberOfDoors" class="form-control">
+    </div>
+    <div class="col-md-1">
+        <label asp-for="NumberOfSeats" class="form-label">Seats</label>
+        <input asp-for="NumberOfSeats" class="form-control">
+    </div>
+    <div class="col-md-4">
+        <label asp-for="Color" class="form-label">Color</label>
+        <input asp-for="Color" class="form-control">
+    </div>
+    <div class="col-md-3">
+        <label asp-for="EurostandardId" class="form-label"></label>
+        <select asp-for="EurostandardId" class="form-select">
+            @foreach (var eurostandard in Model.Eurostandards)
+            {
+                <option value="@eurostandard.Id">@eurostandard.Name</option>
+            }
+        </select>
+    </div>
+    <div class="col-12">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox">
+            <label asp-for="NewImportation" class="form-check-label" for="gridCheck">
+                New importation?
+            </label>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label">Vehicle Description</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
 </form>
