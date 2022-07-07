@@ -25,7 +25,17 @@
         [HttpPost]
         public IActionResult Add(AddAdvertismentFormModel advertisment)
         {
-            return View();
+            if (!ModelState.IsValid)
+            {
+                advertisment.VehicleTypes = this.GetVehicleTypes();
+                advertisment.ConditionStatuses = this.GetConditionStatuses();
+                advertisment.TransmissionTypes = this.GetTransmissionTypes();
+                advertisment.FuelTypes = this.GetFuelTypes();
+                advertisment.Eurostandards = this.GetEurostandards();
+                return View(advertisment);
+            }
+
+            return RedirectToAction("Index", "Home");
         }
 
         private IEnumerable<VehicleTypeViewModel> GetVehicleTypes()

@@ -19,7 +19,7 @@
 
         public long Mileage { get; init; }
 
-        public decimal Price { get; init; }
+        public int Price { get; init; }
 
         [Display(Name = "Transmission type")]
         public int TransmissionId { get; init; }
@@ -30,8 +30,6 @@
         public int Power { get; init; }
 
         public double CubicCapacity { get; init; }
-
-        public DateTime ManifactureDate { get; init; }
 
         public int NumberOfDoors { get; init; }
 

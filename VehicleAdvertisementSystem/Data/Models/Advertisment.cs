@@ -1,7 +1,6 @@
 ﻿namespace VehicleAdvertisementSystem.Data.Models
 {
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
 
     public class Advertisment
     {
@@ -9,73 +8,73 @@
         {
             this.Extras = new HashSet<Extra>();
             this.Images = new List<Image>();
+            this.DateOfPublication = DateTime.UtcNow;
         }
 
-        public int Id { get; set; }
+        public int Id { get; init; }
 
-        public int VehicleTypeId { get; set; }
+        public int VehicleTypeId { get; init; }
 
-        public VehicleType VehicleType { get; set; }
+        public VehicleType VehicleType { get; init; }
 
-        public int ConditionStatusId { get; set; }
+        public int ConditionStatusId { get; init; }
 
-        public ConditionStatus ConditionStatus { get; set; }
+        public ConditionStatus ConditionStatus { get; init; }
 
         [Required]
         [StringLength(DataConstants.VehicleMakeMaxLength)]
-        public string Make { get; set; }
+        public string Make { get; init; }
 
         [Required]
         [StringLength(DataConstants.VehicleModelMaxLength)]
-        public string Model { get; set; }
+        public string Model { get; init; }
 
         [Range(DataConstants.VehicleMileageMinValue, DataConstants.VehicleMileageMaxValue)]
-        public long Mileage { get; set; }
+        public long Mileage { get; init; }
 
-        [Column(TypeName = "decimal(9, 2)")]
-        public decimal Price { get; set; }
+        public int Price { get; init; }
 
-        public int TransmissionId { get; set; }
+        public int TransmissionId { get; init; }
 
-        public Transmission Transmission { get; set; }
+        public Transmission Transmission { get; init; }
 
-        public int FuelId { get; set; }
+        public int FuelId { get; init; }
 
-        public Fuel Fuel { get; set; }
+        public Fuel Fuel { get; init; }
 
         [Range(DataConstants.VehiclePowerMinValue, DataConstants.VehiclePowerMaxValue)]
-        public int Power { get; set; }
+        public int Power { get; init; }
 
-        public double CubicCapacity { get; set; }
+        public double CubicCapacity { get; init; }
 
-        public DateTime ManifactureDate { get; set; }
+        public DateTime ManifactureDate { get; init; }
 
         [Range(DataConstants.VehicleMinDoorsNumber, DataConstants.VehicleMaxDoorsNumber)]
-        public int NumberOfDoors { get; set; }
+        public int NumberOfDoors { get; init; }
 
         [Range(DataConstants.VehicleMinSeatsNumber, DataConstants.VehicleMaxSeatsNumber)]
-        public int NumberOfSeats { get; set; }
+        public int NumberOfSeats { get; init; }
 
         [Required]
         [StringLength(DataConstants.VehicleColorMaxLength)]
-        public string Color { get; set; }
+        public string Color { get; init; }
 
-        public int? EurostandardId { get; set; }
+        public int? EurostandardId { get; init; }
 
-        public Eurostandard? Eurostandard { get; set; }
+        public Eurostandard? Eurostandard { get; init; }
 
-        public bool NewImportation { get; set; }
+        public bool NewImportation { get; init; }
 
         public ICollection<Image> Images { get; set; }
 
         public ICollection<Extra> Extras { get; set; }
 
-        public DateTime DateOfPublication { get; set; }
+        public DateTime DateOfPublication { get; init; }
 
-        public int ViewsCounter { get; set; }
+        public int ViewsCounter { get; private set; }
 
         [Required]
         [StringLength(DataConstants.DescriptionMaxLength, MinimumLength = DataConstants.DescriptionMinLength)]
-        public string Description { get; set; }
+        public string Description { get; init; }
     }
 }
