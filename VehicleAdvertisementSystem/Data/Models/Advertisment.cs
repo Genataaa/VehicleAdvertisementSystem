@@ -44,8 +44,10 @@
         [Range(DataConstants.VehiclePowerMinValue, DataConstants.VehiclePowerMaxValue)]
         public int Power { get; init; }
 
+        [Range(DataConstants.MinYear, DataConstants.MaxYear)]
         public int Year { get; init; }
 
+        [Range(DataConstants.MinMonth, DataConstants.MaxMonth)]
         public int Month { get; init; }
 
         [Range(DataConstants.VehicleMinDoorsNumber, DataConstants.VehicleMaxDoorsNumber)]

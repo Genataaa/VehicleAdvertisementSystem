@@ -29,6 +29,15 @@
 
         public const int DescriptionMaxLength = int.MaxValue;
 
+        public const int MaxYear = 2022;
+
+        public const int MinYear = 1950;
+
+        public const int MinMonth = 1;
+
+        public const int MaxMonth = 12;
+
+
         //ConditionStatus
         public const int ConditionNameMaxLength = 20;
 

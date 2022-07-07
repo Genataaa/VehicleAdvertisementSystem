@@ -34,11 +34,20 @@
         [Range(DataConstants.VehiclePowerMinValue, DataConstants.VehiclePowerMaxValue)]
         public int Power { get; init; }
 
+        [Range(DataConstants.MinYear, DataConstants.MaxYear)]
+        public int Year { get; init; }
+
+        [Range(DataConstants.MinMonth, DataConstants.MaxMonth)]
+        public int Month { get; init; }
+
+        [Range(DataConstants.VehicleMinDoorsNumber, DataConstants.VehicleMaxDoorsNumber)]
         public int NumberOfDoors { get; init; }
 
+        [Range(DataConstants.VehicleMinSeatsNumber, DataConstants.VehicleMaxSeatsNumber)]
         public int NumberOfSeats { get; init; }
 
         [Required]
+        [StringLength(DataConstants.VehicleColorMaxLength)]
         public string Color { get; init; }
 
         [Display(Name = "Eurostandard")]
