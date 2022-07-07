@@ -6,7 +6,6 @@
     {
         public Advertisment()
         {
-            this.Extras = new HashSet<Extra>();
             this.Images = new List<Image>();
             this.DateOfPublication = DateTime.UtcNow;
         }
@@ -45,9 +44,9 @@
         [Range(DataConstants.VehiclePowerMinValue, DataConstants.VehiclePowerMaxValue)]
         public int Power { get; init; }
 
-        public double CubicCapacity { get; init; }
+        public int Year { get; init; }
 
-        public DateTime ManifactureDate { get; init; }
+        public int Month { get; init; }
 
         [Range(DataConstants.VehicleMinDoorsNumber, DataConstants.VehicleMaxDoorsNumber)]
         public int NumberOfDoors { get; init; }
@@ -66,8 +65,6 @@
         public bool NewImportation { get; init; }
 
         public ICollection<Image> Images { get; set; }
-
-        public ICollection<Extra> Extras { get; set; }
 
         public DateTime DateOfPublication { get; init; }
 

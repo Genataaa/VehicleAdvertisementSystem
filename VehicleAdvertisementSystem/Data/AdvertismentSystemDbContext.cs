@@ -15,8 +15,6 @@
 
         public DbSet<Eurostandard> Eurostandards { get; set; }
 
-        public DbSet<Extra> Extras { get; set; }
-
         public DbSet<Fuel> FuelTypes { get; set; }
 
         public DbSet<Image> Images { get; set; }

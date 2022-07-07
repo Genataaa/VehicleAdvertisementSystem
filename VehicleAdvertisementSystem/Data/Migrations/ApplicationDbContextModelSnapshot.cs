@@ -22,21 +22,6 @@ namespace VehicleAdvertisementSystem.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("AdvertismentExtra", b =>
-                {
-                    b.Property<int>("AdvertismentsId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ExtrasId")
-                        .HasColumnType("int");
-
-                    b.HasKey("AdvertismentsId", "ExtrasId");
-
-                    b.HasIndex("ExtrasId");
-
-                    b.ToTable("AdvertismentExtra");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -255,9 +240,6 @@ namespace VehicleAdvertisementSystem.Data.Migrations
                     b.Property<int>("ConditionStatusId")
                         .HasColumnType("int");
 
-                    b.Property<double>("CubicCapacity")
-                        .HasColumnType("float");
-
                     b.Property<DateTime>("DateOfPublication")
                         .HasColumnType("datetime2");
 
@@ -277,9 +259,6 @@ namespace VehicleAdvertisementSystem.Data.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<DateTime>("ManifactureDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<long>("Mileage")
                         .HasColumnType("bigint");
 
@@ -287,6 +266,9 @@ namespace VehicleAdvertisementSystem.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
+
+                    b.Property<int>("Month")
+                        .HasColumnType("int");
 
                     b.Property<bool>("NewImportation")
                         .HasColumnType("bit");
@@ -310,6 +292,9 @@ namespace VehicleAdvertisementSystem.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("ViewsCounter")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Year")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -361,24 +346,6 @@ namespace VehicleAdvertisementSystem.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Eurostandards");
-                });
-
-            modelBuilder.Entity("VehicleAdvertisementSystem.Data.Models.Extra", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(40)
-                        .HasColumnType("nvarchar(40)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Extras");
                 });
 
             modelBuilder.Entity("VehicleAdvertisementSystem.Data.Models.Fuel", b =>
@@ -455,21 +422,6 @@ namespace VehicleAdvertisementSystem.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("VehicleTypes");
-                });
-
-            modelBuilder.Entity("AdvertismentExtra", b =>
-                {
-                    b.HasOne("VehicleAdvertisementSystem.Data.Models.Advertisment", null)
-                        .WithMany()
-                        .HasForeignKey("AdvertismentsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("VehicleAdvertisementSystem.Data.Models.Extra", null)
-                        .WithMany()
-                        .HasForeignKey("ExtrasId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

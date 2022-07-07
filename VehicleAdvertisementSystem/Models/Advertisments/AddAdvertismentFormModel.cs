@@ -2,6 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;
+    using VehicleAdvertisementSystem.Data;
 
     public class AddAdvertismentFormModel
     {
@@ -12,11 +13,14 @@
         public int ConditionStatusId { get; init; }
 
         [Required]
+        [StringLength(DataConstants.VehicleMakeMaxLength)]
         public string Make { get; init; }
 
         [Required]
+        [StringLength(DataConstants.VehicleModelMaxLength)]
         public string Model { get; init; }
 
+        [Range(DataConstants.VehicleMileageMinValue, DataConstants.VehicleMileageMaxValue)]
         public long Mileage { get; init; }
 
         public int Price { get; init; }
@@ -27,9 +31,8 @@
         [Display(Name = "Fule")]
         public int FuelId { get; init; }
 
+        [Range(DataConstants.VehiclePowerMinValue, DataConstants.VehiclePowerMaxValue)]
         public int Power { get; init; }
-
-        public double CubicCapacity { get; init; }
 
         public int NumberOfDoors { get; init; }
 
