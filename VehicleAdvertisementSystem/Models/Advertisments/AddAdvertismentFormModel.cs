@@ -51,12 +51,11 @@
         public string Color { get; init; }
 
         [Display(Name = "Eurostandard")]
-        public int? EurostandardId { get; init; }
+        public int EurostandardId { get; init; }
 
         public bool NewImportation { get; init; }
 
-        [Required]
-        public string Description { get; init; }
+        public string Description { get; set; }
 
         public IEnumerable<VehicleTypeViewModel> VehicleTypes { get; set; }
 

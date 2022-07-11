@@ -7,7 +7,6 @@
         public Advertisment()
         {
             this.Images = new List<Image>();
-            this.DateOfPublication = DateTime.UtcNow;
         }
 
         public int Id { get; init; }
@@ -60,9 +59,9 @@
         [StringLength(DataConstants.VehicleColorMaxLength)]
         public string Color { get; init; }
 
-        public int? EurostandardId { get; init; }
+        public int EurostandardId { get; init; }
 
-        public Eurostandard? Eurostandard { get; init; }
+        public Eurostandard Eurostandard { get; init; }
 
         public bool NewImportation { get; init; }
 
@@ -72,8 +71,6 @@
 
         public int ViewsCounter { get; private set; }
 
-        [Required]
-        [StringLength(DataConstants.DescriptionMaxLength, MinimumLength = DataConstants.DescriptionMinLength)]
         public string Description { get; init; }
     }
 }

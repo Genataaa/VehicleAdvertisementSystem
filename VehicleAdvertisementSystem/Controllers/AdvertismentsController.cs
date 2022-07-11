@@ -3,15 +3,14 @@
     using Microsoft.AspNetCore.Mvc;
     using Models.Advertisments;
     using VehicleAdvertisementSystem.Data;
+    using Data.Models;
 
     public class AdvertismentsController : Controller
     {
         private readonly AdvertismentSystemDbContext data;
 
         public AdvertismentsController(AdvertismentSystemDbContext data)
-        {
-            this.data = data;
-        }
+            => this.data = data;
 
         public IActionResult Add() => View(new AddAdvertismentFormModel
         {
@@ -25,6 +24,31 @@
         [HttpPost]
         public IActionResult Add(AddAdvertismentFormModel advertisment)
         {
+            if (!this.data.VehicleTypes.Any(t => t.Id == advertisment.VehicleTypeId))
+            {
+                this.ModelState.AddModelError(nameof(advertisment.VehicleTypeId), "Vehicle type does not exist.");
+            }
+
+            if (this.data.ConditionStatuses.Any(c => c.Id == advertisment.ConditionStatusId))
+            {
+                this.ModelState.AddModelError(nameof(advertisment.ConditionStatusId), "Condition status does not exist.");
+            }
+
+            if (this.data.Transmissions.Any(t => t.Id == advertisment.TransmissionId))
+            {
+                this.ModelState.AddModelError(nameof(advertisment.TransmissionId), "Transmission type does not exist.");
+            }
+
+            if (this.data.FuelTypes.Any(t => t.Id == advertisment.FuelId))
+            {
+                this.ModelState.AddModelError(nameof(advertisment.FuelId), "Fuel type does not exist.");
+            }
+
+            if (this.data.Eurostandards.Any(t => t.Id == advertisment.EurostandardId))
+            {
+                this.ModelState.AddModelError(nameof(advertisment.EurostandardId), "Eurostanderd does not exist.");
+            }
+
             if (!ModelState.IsValid)
             {
                 advertisment.VehicleTypes = this.GetVehicleTypes();
@@ -34,6 +58,31 @@
                 advertisment.Eurostandards = this.GetEurostandards();
                 return View(advertisment);
             }
+
+            var advertismentData = new Advertisment
+            {
+                VehicleTypeId = advertisment.VehicleTypeId,
+                ConditionStatusId = advertisment.ConditionStatusId,
+                Make = advertisment.Make,
+                Model = advertisment.Model,
+                Mileage = advertisment.Mileage,
+                Price = advertisment.Price,
+                TransmissionId = advertisment.TransmissionId,
+                FuelId = advertisment.FuelId,
+                Power = advertisment.Power,
+                Year = advertisment.Year,
+                Month = advertisment.Month,
+                NumberOfDoors = advertisment.NumberOfDoors,
+                NumberOfSeats = advertisment.NumberOfSeats,
+                Color = advertisment.Color,
+                EurostandardId = advertisment.EurostandardId,
+                NewImportation = advertisment.NewImportation,
+                DateOfPublication = DateTime.UtcNow,
+                Description = advertisment.Description,
+            };
+
+            this.data.Advertisments.Add(advertismentData);
+            this.data.SaveChanges();
 
             return RedirectToAction("Index", "Home");
         }

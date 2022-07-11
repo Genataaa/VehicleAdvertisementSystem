@@ -23,18 +23,23 @@
     <div class="col-md-4">
         <label asp-for="Make" class="form-label">Make</label>
         <input asp-for="Make" class="form-control">
+        <span asp-validation-for="Make" class="small text-danger"></span>
     </div>
     <div class="col-md-4">
         <label asp-for="Model" class="form-label">Model</label>
         <input asp-for="Model" class="form-control">
+        <span asp-validation-for="Model" class="small text-danger"></span>
+
     </div>
     <div class="col-md-2">
         <label asp-for="Mileage" class="form-label" class="">Mileage</label>
         <input asp-for="Mileage" class="form-control">
+        <span asp-validation-for="Mileage" class="small text-danger"></span>
     </div>
     <div class="col-md-1">
         <label asp-for="Price" class="form-label">Price</label>
         <input asp-for="Price" class="form-control">
+        <span asp-validation-for="Price" class="small text-danger"></span>
     </div>
     <div class="col-md-3">
         <label asp-for="TransmissionId" class="form-label"></label>
@@ -57,26 +62,32 @@
     <div class="col-md-1">
         <label asp-for="Power" class="form-label">Power</label>
         <input asp-for="Power" class="form-control">
+        <span asp-validation-for="Power" class="small text-danger"></span>
     </div>
     <div class="col-md-1">
         <label asp-for="Year" class="form-label">Year</label>
         <input asp-for="Year" class="form-control">
+        <span asp-validation-for="Year" class="small text-danger"></span>
     </div>
     <div class="col-md-1">
         <label asp-for="Month" class="form-label">Month</label>
         <input asp-for="Month" class="form-control">
+        <span asp-validation-for="Month" class="small text-danger"></span>
     </div>
     <div class="col-md-1">
         <label asp-for="NumberOfDoors" class="form-label">Doors</label>
         <input asp-for="NumberOfDoors" class="form-control">
+        <span asp-validation-for="NumberOfDoors" class="small text-danger"></span>
     </div>
     <div class="col-md-1">
         <label asp-for="NumberOfSeats" class="form-label">Seats</label>
         <input asp-for="NumberOfSeats" class="form-control">
+        <span asp-validation-for="NumberOfSeats" class="small text-danger"></span>
     </div>
     <div class="col-md-4">
         <label asp-for="Color" class="form-label">Color</label>
         <input asp-for="Color" class="form-control">
+        <span asp-validation-for="Color" class="small text-danger"></span>
     </div>
     <div class="col-md-3">
         <label asp-for="EurostandardId" class="form-label"></label>
@@ -98,7 +109,8 @@
     <div class="col-12">
         <div class="mb-3">
             <label asp-for="Description" class="form-label">Vehicle Description</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea class="form-control" rows="3"></textarea>
+            <span asp-validation-for="Description" class="small text-danger"></span>
         </div>
         <div class="col-12">
             <button type="submit" class="btn btn-primary">Submit</button>
