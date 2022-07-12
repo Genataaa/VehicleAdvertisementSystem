@@ -12,7 +12,7 @@
         public AdvertismentsController(AdvertismentSystemDbContext data)
             => this.data = data;
 
-        public IActionResult Add() => View(new AddAdvertismentFormModel
+        public IActionResult Add() => View(new AddAdvertisementFormModel
         {
             VehicleTypes = this.GetVehicleTypes(),
             ConditionStatuses = this.GetConditionStatuses(),
@@ -22,66 +22,66 @@
         });
 
         [HttpPost]
-        public IActionResult Add(AddAdvertismentFormModel advertisment)
+        public IActionResult Add(AddAdvertisementFormModel advertisement)
         {
-            if (!this.data.VehicleTypes.Any(t => t.Id == advertisment.VehicleTypeId))
+            if (!this.data.VehicleTypes.Any(t => t.Id == advertisement.VehicleTypeId))
             {
-                this.ModelState.AddModelError(nameof(advertisment.VehicleTypeId), "Vehicle type does not exist.");
+                this.ModelState.AddModelError(nameof(advertisement.VehicleTypeId), "Vehicle type does not exist.");
             }
 
-            if (this.data.ConditionStatuses.Any(c => c.Id == advertisment.ConditionStatusId))
+            if (!this.data.ConditionStatuses.Any(c => c.Id == advertisement.ConditionStatusId))
             {
-                this.ModelState.AddModelError(nameof(advertisment.ConditionStatusId), "Condition status does not exist.");
+                this.ModelState.AddModelError(nameof(advertisement.ConditionStatusId), "Condition status does not exist.");
             }
 
-            if (this.data.Transmissions.Any(t => t.Id == advertisment.TransmissionId))
+            if (!this.data.Transmissions.Any(t => t.Id == advertisement.TransmissionId))
             {
-                this.ModelState.AddModelError(nameof(advertisment.TransmissionId), "Transmission type does not exist.");
+                this.ModelState.AddModelError(nameof(advertisement.TransmissionId), "Transmission type does not exist.");
             }
 
-            if (this.data.FuelTypes.Any(t => t.Id == advertisment.FuelId))
+            if (!this.data.FuelTypes.Any(t => t.Id == advertisement.FuelId))
             {
-                this.ModelState.AddModelError(nameof(advertisment.FuelId), "Fuel type does not exist.");
+                this.ModelState.AddModelError(nameof(advertisement.FuelId), "Fuel type does not exist.");
             }
 
-            if (this.data.Eurostandards.Any(t => t.Id == advertisment.EurostandardId))
+            if (!this.data.Eurostandards.Any(t => t.Id == advertisement.EurostandardId))
             {
-                this.ModelState.AddModelError(nameof(advertisment.EurostandardId), "Eurostanderd does not exist.");
+                this.ModelState.AddModelError(nameof(advertisement.EurostandardId), "Eurostanderd does not exist.");
             }
 
             if (!ModelState.IsValid)
             {
-                advertisment.VehicleTypes = this.GetVehicleTypes();
-                advertisment.ConditionStatuses = this.GetConditionStatuses();
-                advertisment.TransmissionTypes = this.GetTransmissionTypes();
-                advertisment.FuelTypes = this.GetFuelTypes();
-                advertisment.Eurostandards = this.GetEurostandards();
-                return View(advertisment);
+                advertisement.VehicleTypes = this.GetVehicleTypes();
+                advertisement.ConditionStatuses = this.GetConditionStatuses();
+                advertisement.TransmissionTypes = this.GetTransmissionTypes();
+                advertisement.FuelTypes = this.GetFuelTypes();
+                advertisement.Eurostandards = this.GetEurostandards();
+                return View(advertisement);
             }
 
-            var advertismentData = new Advertisment
+            var advertismentData = new Advertisement
             {
-                VehicleTypeId = advertisment.VehicleTypeId,
-                ConditionStatusId = advertisment.ConditionStatusId,
-                Make = advertisment.Make,
-                Model = advertisment.Model,
-                Mileage = advertisment.Mileage,
-                Price = advertisment.Price,
-                TransmissionId = advertisment.TransmissionId,
-                FuelId = advertisment.FuelId,
-                Power = advertisment.Power,
-                Year = advertisment.Year,
-                Month = advertisment.Month,
-                NumberOfDoors = advertisment.NumberOfDoors,
-                NumberOfSeats = advertisment.NumberOfSeats,
-                Color = advertisment.Color,
-                EurostandardId = advertisment.EurostandardId,
-                NewImportation = advertisment.NewImportation,
+                VehicleTypeId = advertisement.VehicleTypeId,
+                ConditionStatusId = advertisement.ConditionStatusId,
+                Make = advertisement.Make,
+                Model = advertisement.Model,
+                Mileage = advertisement.Mileage,
+                Price = advertisement.Price,
+                TransmissionId = advertisement.TransmissionId,
+                FuelId = advertisement.FuelId,
+                Power = advertisement.Power,
+                Year = advertisement.Year,
+                Month = advertisement.Month,
+                NumberOfDoors = advertisement.NumberOfDoors,
+                NumberOfSeats = advertisement.NumberOfSeats,
+                Color = advertisement.Color,
+                EurostandardId = advertisement.EurostandardId,
+                NewImportation = advertisement.NewImportation,
                 DateOfPublication = DateTime.UtcNow,
-                Description = advertisment.Description,
+                Description = advertisement.Description,
             };
 
-            this.data.Advertisments.Add(advertismentData);
+            this.data.Advertisements.Add(advertismentData);
             this.data.SaveChanges();
 
             return RedirectToAction("Index", "Home");
@@ -117,20 +117,20 @@
             })
             .ToList();
 
-        private IEnumerable<FuelVielModel> GetFuelTypes()
+        private IEnumerable<FuelViewModel> GetFuelTypes()
             => this.data
             .FuelTypes
-            .Select(x => new FuelVielModel
+            .Select(x => new FuelViewModel
             {
                 Id = x.Id,
                 Name = x.Name
             })
             .ToList();
 
-        private IEnumerable<EurostandardVielModel> GetEurostandards()
+        private IEnumerable<EurostandardViewModel> GetEurostandards()
             => this.data
             .Eurostandards
-            .Select(x => new EurostandardVielModel
+            .Select(x => new EurostandardViewModel
             {
                 Id = x.Id,
                 Name = x.Name

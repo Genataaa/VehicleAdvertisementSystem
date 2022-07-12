@@ -28,7 +28,7 @@
         [Display(Name = "Transmission type")]
         public int TransmissionId { get; init; }
 
-        [Display(Name = "Fule")]
+        [Display(Name = "Fule")] //to rename
         public int FuelId { get; init; }
 
         [Range(DataConstants.VehiclePowerMinValue, DataConstants.VehiclePowerMaxValue)]
@@ -55,16 +55,16 @@
 
         public bool NewImportation { get; init; }
 
-        public string Description { get; set; }
+        public string Description { get; init; }
 
-        public IEnumerable<VehicleTypeViewModel> VehicleTypes { get; set; }
+        public IEnumerable<VehicleTypeViewModel> VehicleTypes { get; set; } = new List<VehicleTypeViewModel>();
 
-        public IEnumerable<ConditionStatusViewModel> ConditionStatuses { get; set; }
+        public IEnumerable<ConditionStatusViewModel> ConditionStatuses { get; set; } = new List<ConditionStatusViewModel>();
 
-        public IEnumerable<TransmissionTypeViewModel> TransmissionTypes { get; set; }
+        public IEnumerable<TransmissionTypeViewModel> TransmissionTypes { get; set; } = new List<TransmissionTypeViewModel>();
 
-        public IEnumerable<FuelVielModel> FuelTypes { get; set; }
+        public IEnumerable<FuelVielModel> FuelTypes { get; set; } = new List<FuelVielModel>();
 
-        public IEnumerable<EurostandardVielModel> Eurostandards { get; set; }
+        public IEnumerable<EurostandardVielModel> Eurostandards { get; set; } = new List<EurostandardVielModel>();
     }
 }

@@ -1,4 +1,4 @@
-﻿@model AddAdvertismentFormModel
+﻿@model AddAdvertisementFormModel
 
 <form method="post" class="row g-3">
     <H3>Add Advertisment</H3>
@@ -109,7 +109,7 @@
     <div class="col-12">
         <div class="mb-3">
             <label asp-for="Description" class="form-label">Vehicle Description</label>
-            <textarea class="form-control" rows="3"></textarea>
+            <textarea asp-for="Description" class="form-control" rows="3"></textarea>
             <span asp-validation-for="Description" class="small text-danger"></span>
         </div>
         <div class="col-12">
