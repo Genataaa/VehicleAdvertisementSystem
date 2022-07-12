@@ -2,7 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class EurostandardVielModel
+    public class EurostandardViewModel
     {
         public int Id { get; init; }
 

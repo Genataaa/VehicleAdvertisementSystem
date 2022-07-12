@@ -11,6 +11,6 @@
 
         public int AdvertismentId { get; set; }
 
-        public Advertisment Advertisment { get; set; }
+        public Advertisement Advertisement { get; set; }
     }
 }

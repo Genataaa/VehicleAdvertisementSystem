@@ -5,7 +5,7 @@
     public class Fuel
     {
         public Fuel()
-            => this.Advertisments = new HashSet<Advertisment>();
+            => this.Advertisement = new HashSet<Advertisement>();
 
         public int Id { get; set; }
 
@@ -13,6 +13,6 @@
         [StringLength(DataConstants.FuelNameMaxLength)]
         public string Name { get; set; }
 
-        public ICollection<Advertisment> Advertisments { get; set; }
+        public ICollection<Advertisement> Advertisement { get; set; }
     }
 }

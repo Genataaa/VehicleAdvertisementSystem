@@ -5,7 +5,7 @@
     public class Transmission
     {
         public Transmission()
-            => this.Advertisments = new HashSet<Advertisment>();
+            => this.Advertisement = new HashSet<Advertisement>();
 
         public int Id { get; set; }
 
@@ -13,6 +13,6 @@
         [StringLength(DataConstants.TransmissionTypeMaxLength)]
         public string Type { get; set; }
 
-        public ICollection<Advertisment> Advertisments { get; set; }
+        public ICollection<Advertisement> Advertisement { get; set; }
     }
 }

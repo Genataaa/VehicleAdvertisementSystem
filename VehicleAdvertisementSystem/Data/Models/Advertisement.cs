@@ -2,9 +2,9 @@
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class Advertisment
+    public class Advertisement
     {
-        public Advertisment()
+        public Advertisement()
         {
             this.Images = new List<Image>();
         }

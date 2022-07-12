@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using VehicleAdvertisementSystem.Data;
 
-    public class AddAdvertismentFormModel
+    public class AddAdvertisementFormModel
     {
         [Display(Name = "Type vehicle")]
         public int VehicleTypeId { get; init; }
@@ -28,7 +28,7 @@
         [Display(Name = "Transmission type")]
         public int TransmissionId { get; init; }
 
-        [Display(Name = "Fule")] //to rename
+        [Display(Name = "Fuel")]
         public int FuelId { get; init; }
 
         [Range(DataConstants.VehiclePowerMinValue, DataConstants.VehiclePowerMaxValue)]
@@ -63,8 +63,8 @@
 
         public IEnumerable<TransmissionTypeViewModel> TransmissionTypes { get; set; } = new List<TransmissionTypeViewModel>();
 
-        public IEnumerable<FuelVielModel> FuelTypes { get; set; } = new List<FuelVielModel>();
+        public IEnumerable<FuelViewModel> FuelTypes { get; set; } = new List<FuelViewModel>();
 
-        public IEnumerable<EurostandardVielModel> Eurostandards { get; set; } = new List<EurostandardVielModel>();
+        public IEnumerable<EurostandardViewModel> Eurostandards { get; set; } = new List<EurostandardViewModel>();
     }
 }

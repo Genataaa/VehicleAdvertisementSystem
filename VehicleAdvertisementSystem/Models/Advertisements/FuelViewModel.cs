@@ -1,6 +1,6 @@
 ﻿namespace VehicleAdvertisementSystem.Models.Advertisments
 {
-    public class FuelVielModel
+    public class FuelViewModel
     {
         public int Id { get; init; }
 

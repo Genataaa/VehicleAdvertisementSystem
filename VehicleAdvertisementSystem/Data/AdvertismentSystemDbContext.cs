@@ -21,7 +21,7 @@
 
         public DbSet<Transmission> Transmissions { get; set; }
 
-        public DbSet<Advertisment> Advertisments { get; set; }
+        public DbSet<Advertisement> Advertisements { get; set; }
 
         public DbSet<VehicleType> VehicleTypes { get; set; }
     }
