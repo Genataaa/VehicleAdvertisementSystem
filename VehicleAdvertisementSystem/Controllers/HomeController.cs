@@ -2,6 +2,7 @@
 {
     using System.Diagnostics;
     using Microsoft.AspNetCore.Mvc;
+
     using VehicleAdvertisementSystem.Models;
 
     public class HomeController : Controller

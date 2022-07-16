@@ -10,7 +10,7 @@ using VehicleAdvertisementSystem.Data;
 
 namespace VehicleAdvertisementSystem.Data.Migrations
 {
-    [DbContext(typeof(AdvertismentSystemDbContext))]
+    [DbContext(typeof(AdvertisementSystemDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -245,6 +245,7 @@ namespace VehicleAdvertisementSystem.Data.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
+                        .HasMaxLength(2147483647)
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("EurostandardId")

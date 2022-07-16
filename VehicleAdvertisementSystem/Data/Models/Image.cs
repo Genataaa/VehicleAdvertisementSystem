@@ -9,7 +9,7 @@
         [Required]
         public string ImageUrl { get; init; }
 
-        public int AdvertismentId { get; set; }
+        public int AdvertismentId { get; init; }
 
         public Advertisement Advertisement { get; set; }
     }

@@ -2,11 +2,12 @@
 {
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
+
     using VehicleAdvertisementSystem.Data.Models;
 
-    public class AdvertismentSystemDbContext : IdentityDbContext
+    public class AdvertisementSystemDbContext : IdentityDbContext
     {
-        public AdvertismentSystemDbContext(DbContextOptions<AdvertismentSystemDbContext> options)
+        public AdvertisementSystemDbContext(DbContextOptions<AdvertisementSystemDbContext> options)
             : base(options)
         {
         }

@@ -1,7 +1,8 @@
-﻿namespace VehicleAdvertisementSystem.Models.Advertisments
+﻿namespace VehicleAdvertisementSystem.Models.Advertisements
 {
     using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;
+
     using VehicleAdvertisementSystem.Data;
 
     public class AddAdvertisementFormModel
@@ -55,6 +56,8 @@
 
         public bool NewImportation { get; init; }
 
+        [Required]
+        [StringLength(DataConstants.DescriptionMaxLength, MinimumLength = DataConstants.DescriptionMinLength)]
         public string Description { get; init; }
 
         public IEnumerable<VehicleTypeViewModel> VehicleTypes { get; set; } = new List<VehicleTypeViewModel>();

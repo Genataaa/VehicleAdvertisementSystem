@@ -1,15 +1,16 @@
 ﻿namespace VehicleAdvertisementSystem.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
-    using Models.Advertisments;
-    using VehicleAdvertisementSystem.Data;
+
+    using Models.Advertisements;
     using Data.Models;
+    using VehicleAdvertisementSystem.Data;
 
-    public class AdvertismentsController : Controller
+    public class AdvertisementsController : Controller
     {
-        private readonly AdvertismentSystemDbContext data;
+        private readonly AdvertisementSystemDbContext data;
 
-        public AdvertismentsController(AdvertismentSystemDbContext data)
+        public AdvertisementsController(AdvertisementSystemDbContext data)
             => this.data = data;
 
         public IActionResult Add() => View(new AddAdvertisementFormModel
@@ -59,7 +60,7 @@
                 return View(advertisement);
             }
 
-            var advertismentData = new Advertisement
+            var advertisementData = new Advertisement
             {
                 VehicleTypeId = advertisement.VehicleTypeId,
                 ConditionStatusId = advertisement.ConditionStatusId,
@@ -81,7 +82,7 @@
                 Description = advertisement.Description,
             };
 
-            this.data.Advertisements.Add(advertismentData);
+            this.data.Advertisements.Add(advertisementData);
             this.data.SaveChanges();
 
             return RedirectToAction("Index", "Home");

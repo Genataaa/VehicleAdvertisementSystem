@@ -9,7 +9,7 @@ using VehicleAdvertisementSystem.Data;
 
 namespace VehicleAdvertisementSystem.Data.Migrations
 {
-    [DbContext(typeof(AdvertismentSystemDbContext))]
+    [DbContext(typeof(AdvertisementSystemDbContext))]
     [Migration("00000000000000_CreateIdentitySchema")]
     partial class CreateIdentitySchema
     {

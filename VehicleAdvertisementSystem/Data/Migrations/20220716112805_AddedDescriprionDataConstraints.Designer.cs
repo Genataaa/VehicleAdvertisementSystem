@@ -12,8 +12,8 @@ using VehicleAdvertisementSystem.Data;
 namespace VehicleAdvertisementSystem.Data.Migrations
 {
     [DbContext(typeof(AdvertisementSystemDbContext))]
-    [Migration("20220711111834_DescriprionPropertyIsNotRequired")]
-    partial class DescriprionPropertyIsNotRequired
+    [Migration("20220716112805_AddedDescriprionDataConstraints")]
+    partial class AddedDescriprionDataConstraints
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -226,7 +226,7 @@ namespace VehicleAdvertisementSystem.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("VehicleAdvertisementSystem.Data.Models.Advertisment", b =>
+            modelBuilder.Entity("VehicleAdvertisementSystem.Data.Models.Advertisement", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -311,7 +311,7 @@ namespace VehicleAdvertisementSystem.Data.Migrations
 
                     b.HasIndex("VehicleTypeId");
 
-                    b.ToTable("Advertisments");
+                    b.ToTable("Advertisements");
                 });
 
             modelBuilder.Entity("VehicleAdvertisementSystem.Data.Models.ConditionStatus", b =>
@@ -376,6 +376,9 @@ namespace VehicleAdvertisementSystem.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<int>("AdvertisementId")
+                        .HasColumnType("int");
+
                     b.Property<int>("AdvertismentId")
                         .HasColumnType("int");
 
@@ -385,7 +388,7 @@ namespace VehicleAdvertisementSystem.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AdvertismentId");
+                    b.HasIndex("AdvertisementId");
 
                     b.ToTable("Images");
                 });
@@ -477,10 +480,10 @@ namespace VehicleAdvertisementSystem.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("VehicleAdvertisementSystem.Data.Models.Advertisment", b =>
+            modelBuilder.Entity("VehicleAdvertisementSystem.Data.Models.Advertisement", b =>
                 {
                     b.HasOne("VehicleAdvertisementSystem.Data.Models.ConditionStatus", "ConditionStatus")
-                        .WithMany("Advertisments")
+                        .WithMany("Advertisements")
                         .HasForeignKey("ConditionStatusId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -492,19 +495,19 @@ namespace VehicleAdvertisementSystem.Data.Migrations
                         .IsRequired();
 
                     b.HasOne("VehicleAdvertisementSystem.Data.Models.Fuel", "Fuel")
-                        .WithMany("Advertisments")
+                        .WithMany("Advertisement")
                         .HasForeignKey("FuelId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("VehicleAdvertisementSystem.Data.Models.Transmission", "Transmission")
-                        .WithMany("Advertisments")
+                        .WithMany("Advertisement")
                         .HasForeignKey("TransmissionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("VehicleAdvertisementSystem.Data.Models.VehicleType", "VehicleType")
-                        .WithMany("Advertisments")
+                        .WithMany("Advertisement")
                         .HasForeignKey("VehicleTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -522,38 +525,38 @@ namespace VehicleAdvertisementSystem.Data.Migrations
 
             modelBuilder.Entity("VehicleAdvertisementSystem.Data.Models.Image", b =>
                 {
-                    b.HasOne("VehicleAdvertisementSystem.Data.Models.Advertisment", "Advertisment")
+                    b.HasOne("VehicleAdvertisementSystem.Data.Models.Advertisement", "Advertisement")
                         .WithMany("Images")
-                        .HasForeignKey("AdvertismentId")
+                        .HasForeignKey("AdvertisementId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Advertisment");
+                    b.Navigation("Advertisement");
                 });
 
-            modelBuilder.Entity("VehicleAdvertisementSystem.Data.Models.Advertisment", b =>
+            modelBuilder.Entity("VehicleAdvertisementSystem.Data.Models.Advertisement", b =>
                 {
                     b.Navigation("Images");
                 });
 
             modelBuilder.Entity("VehicleAdvertisementSystem.Data.Models.ConditionStatus", b =>
                 {
-                    b.Navigation("Advertisments");
+                    b.Navigation("Advertisements");
                 });
 
             modelBuilder.Entity("VehicleAdvertisementSystem.Data.Models.Fuel", b =>
                 {
-                    b.Navigation("Advertisments");
+                    b.Navigation("Advertisement");
                 });
 
             modelBuilder.Entity("VehicleAdvertisementSystem.Data.Models.Transmission", b =>
                 {
-                    b.Navigation("Advertisments");
+                    b.Navigation("Advertisement");
                 });
 
             modelBuilder.Entity("VehicleAdvertisementSystem.Data.Models.VehicleType", b =>
                 {
-                    b.Navigation("Advertisments");
+                    b.Navigation("Advertisement");
                 });
 #pragma warning restore 612, 618
         }

@@ -7,11 +7,11 @@
         public Transmission()
             => this.Advertisement = new HashSet<Advertisement>();
 
-        public int Id { get; set; }
+        public int Id { get; init; }
 
         [Required]
         [StringLength(DataConstants.TransmissionTypeMaxLength)]
-        public string Type { get; set; }
+        public string Type { get; init; }
 
         public ICollection<Advertisement> Advertisement { get; set; }
     }

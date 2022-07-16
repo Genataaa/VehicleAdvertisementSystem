@@ -2,6 +2,7 @@ namespace VehicleAdvertisementSystem
 {
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
+
     using VehicleAdvertisementSystem.Data;
     using Infrastructure;
 
@@ -12,7 +13,7 @@ namespace VehicleAdvertisementSystem
             var builder = WebApplication.CreateBuilder(args);
 
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-            builder.Services.AddDbContext<AdvertismentSystemDbContext>(options =>
+            builder.Services.AddDbContext<AdvertisementSystemDbContext>(options =>
                 options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -23,13 +24,12 @@ namespace VehicleAdvertisementSystem
                     options.Password.RequireNonAlphanumeric = false;
                     options.Password.RequireUppercase = false;
                 })
-                .AddEntityFrameworkStores<AdvertismentSystemDbContext>();
+                .AddEntityFrameworkStores<AdvertisementSystemDbContext>();
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
 
             app.PrepareDatabase();
-            
 
             if (app.Environment.IsDevelopment())
                 app.UseMigrationsEndPoint();

@@ -7,11 +7,11 @@
         public ConditionStatus()
             => this.Advertisements = new HashSet<Advertisement>();
 
-        public int Id { get; set; }
+        public int Id { get; init; }
 
         [Required]
         [StringLength(DataConstants.ConditionNameMaxLength)]
-        public string Name { get; set; }
+        public string Name { get; init; }
 
         public ICollection<Advertisement> Advertisements { get; set; }
     }

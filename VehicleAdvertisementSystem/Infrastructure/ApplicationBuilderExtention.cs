@@ -1,7 +1,8 @@
 ﻿namespace VehicleAdvertisementSystem.Infrastructure
 {
-    using Data;
     using Microsoft.EntityFrameworkCore;
+
+    using Data;
     using VehicleAdvertisementSystem.Data.Models;
 
     public static class ApplicationBuilderExtention
@@ -11,7 +12,7 @@
         {
             using var scopedServices = app.ApplicationServices.CreateScope();
 
-            var data = scopedServices.ServiceProvider.GetService<AdvertismentSystemDbContext>();
+            var data = scopedServices.ServiceProvider.GetService<AdvertisementSystemDbContext>();
 
             data.Database.Migrate();
 
@@ -24,7 +25,7 @@
             return app;
         }
 
-        private static void SeedConditionStatus(AdvertismentSystemDbContext data)
+        private static void SeedConditionStatus(AdvertisementSystemDbContext data)
         {
             if (!data.ConditionStatuses.Any())
             {
@@ -39,7 +40,7 @@
             }
         }
 
-        private static void SeedEurostandards(AdvertismentSystemDbContext data)
+        private static void SeedEurostandards(AdvertisementSystemDbContext data)
         {
             if (!data.Eurostandards.Any())
             {
@@ -58,7 +59,7 @@
             }
         }
 
-        private static void SeedFuel(AdvertismentSystemDbContext data)
+        private static void SeedFuel(AdvertisementSystemDbContext data)
         {
             if (!data.FuelTypes.Any())
             {
@@ -76,7 +77,7 @@
             }
         }
 
-        private static void SeedTransmission(AdvertismentSystemDbContext data)
+        private static void SeedTransmission(AdvertisementSystemDbContext data)
         {
             if (!data.Transmissions.Any())
             {
@@ -91,7 +92,7 @@
             }
         }
 
-        private static void SeedVehicleTypes(AdvertismentSystemDbContext data)
+        private static void SeedVehicleTypes(AdvertisementSystemDbContext data)
         {
             if (!data.VehicleTypes.Any())
             {

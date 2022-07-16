@@ -69,8 +69,10 @@
 
         public DateTime DateOfPublication { get; init; }
 
-        public int ViewsCounter { get; private set; }
+        public int ViewsCounter { get; set; }
 
+        [Required]
+        [StringLength(DataConstants.DescriptionMaxLength, MinimumLength = DataConstants.DescriptionMinLength)]
         public string Description { get; init; }
     }
 }

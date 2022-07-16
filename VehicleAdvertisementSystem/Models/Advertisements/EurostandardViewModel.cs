@@ -1,4 +1,4 @@
-﻿namespace VehicleAdvertisementSystem.Models.Advertisments
+﻿namespace VehicleAdvertisementSystem.Models.Advertisements
 {
     using System.ComponentModel.DataAnnotations;
 

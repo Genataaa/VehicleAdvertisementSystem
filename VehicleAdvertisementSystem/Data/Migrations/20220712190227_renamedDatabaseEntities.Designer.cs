@@ -11,7 +11,7 @@ using VehicleAdvertisementSystem.Data;
 
 namespace VehicleAdvertisementSystem.Data.Migrations
 {
-    [DbContext(typeof(AdvertismentSystemDbContext))]
+    [DbContext(typeof(AdvertisementSystemDbContext))]
     [Migration("20220712190227_renamedDatabaseEntities")]
     partial class renamedDatabaseEntities
     {

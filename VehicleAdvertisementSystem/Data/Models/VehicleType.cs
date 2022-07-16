@@ -7,11 +7,11 @@
         public VehicleType()
             => this.Advertisement = new HashSet<Advertisement>();
 
-        public int Id { get; set; }
+        public int Id { get; init; }
 
         [Required]
         [StringLength(DataConstants.VehicleTypeMaxNameLength)]
-        public string Name { get; set; }
+        public string Name { get; init; }
 
         public ICollection<Advertisement> Advertisement { get; set; }
     }
