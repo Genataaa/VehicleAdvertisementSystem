@@ -4,7 +4,7 @@
 
     public class Image
     {
-        public int Id { get; set; }
+        public int Id { get; init; }
 
         [Required]
         public string ImageUrl { get; init; }

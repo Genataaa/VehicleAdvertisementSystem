@@ -4,11 +4,6 @@
 
     public class Advertisement
     {
-        public Advertisement()
-        {
-            this.Images = new List<Image>();
-        }
-
         public int Id { get; init; }
 
         public int VehicleTypeId { get; init; }
@@ -26,6 +21,10 @@
         [Required]
         [StringLength(DataConstants.VehicleModelMaxLength)]
         public string Model { get; init; }
+
+        [Required]
+        [Url]
+        public string ImageUrl { get; init; }
 
         [Range(DataConstants.VehicleMileageMinValue, DataConstants.VehicleMileageMaxValue)]
         public long Mileage { get; init; }
@@ -65,7 +64,7 @@
 
         public bool NewImportation { get; init; }
 
-        public ICollection<Image> Images { get; set; }
+        //public ICollection<Image> Images { get; set; }
 
         public DateTime DateOfPublication { get; init; }
 

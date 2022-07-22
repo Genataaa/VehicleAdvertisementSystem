@@ -21,6 +21,10 @@
         [StringLength(DataConstants.VehicleModelMaxLength)]
         public string Model { get; init; }
 
+        [Required]
+        [Url]
+        public string ImageUrl { get; init; }
+
         [Range(DataConstants.VehicleMileageMinValue, DataConstants.VehicleMileageMaxValue)]
         public long Mileage { get; init; }
 

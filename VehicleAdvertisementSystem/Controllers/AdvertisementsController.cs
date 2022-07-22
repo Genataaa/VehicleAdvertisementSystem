@@ -66,6 +66,7 @@
                 ConditionStatusId = advertisement.ConditionStatusId,
                 Make = advertisement.Make,
                 Model = advertisement.Model,
+                ImageUrl = advertisement.ImageUrl,
                 Mileage = advertisement.Mileage,
                 Price = advertisement.Price,
                 TransmissionId = advertisement.TransmissionId,
@@ -79,7 +80,7 @@
                 EurostandardId = advertisement.EurostandardId,
                 NewImportation = advertisement.NewImportation,
                 DateOfPublication = DateTime.UtcNow,
-                Description = advertisement.Description,
+                Description = advertisement.Description,           
             };
 
             this.data.Advertisements.Add(advertisementData);

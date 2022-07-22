@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VehicleAdvertisementSystem.Data;
 
@@ -11,9 +12,10 @@ using VehicleAdvertisementSystem.Data;
 namespace VehicleAdvertisementSystem.Data.Migrations
 {
     [DbContext(typeof(AdvertisementSystemDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220722044946_AddedImagePropertyesToAdvertisementModel")]
+    partial class AddedImagePropertyesToAdvertisementModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -528,12 +530,17 @@ namespace VehicleAdvertisementSystem.Data.Migrations
             modelBuilder.Entity("VehicleAdvertisementSystem.Data.Models.Image", b =>
                 {
                     b.HasOne("VehicleAdvertisementSystem.Data.Models.Advertisement", "Advertisement")
-                        .WithMany()
+                        .WithMany("Images")
                         .HasForeignKey("AdvertisementId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Advertisement");
+                });
+
+            modelBuilder.Entity("VehicleAdvertisementSystem.Data.Models.Advertisement", b =>
+                {
+                    b.Navigation("Images");
                 });
 
             modelBuilder.Entity("VehicleAdvertisementSystem.Data.Models.ConditionStatus", b =>

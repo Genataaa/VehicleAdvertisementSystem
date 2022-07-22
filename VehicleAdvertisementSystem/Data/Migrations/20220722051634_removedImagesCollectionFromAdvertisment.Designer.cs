@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VehicleAdvertisementSystem.Data;
 
@@ -11,9 +12,10 @@ using VehicleAdvertisementSystem.Data;
 namespace VehicleAdvertisementSystem.Data.Migrations
 {
     [DbContext(typeof(AdvertisementSystemDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220722051634_removedImagesCollectionFromAdvertisment")]
+    partial class removedImagesCollectionFromAdvertisment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
