@@ -1,0 +1,16 @@
+﻿@model IEnumerable<AdvertismentListingViewModel>
+
+<div class="row">
+    @foreach (var advertisment in Model)
+    {
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="@advertisment.ImageUrl" alt="@advertisment.Make @advertisment.Model - @advertisment.Price">
+                <div class="card-body text-center">
+                    <h5 class="card-title">@advertisment.Make @advertisment.Model - @advertisment.Price lv</h5>
+                    <a href="#" class="btn btn-primary">More info</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

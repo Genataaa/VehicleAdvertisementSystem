@@ -22,6 +22,24 @@
             Eurostandards = this.GetEurostandards(),
         });
 
+        public IActionResult All() 
+        { 
+            var advertisments = this.data
+                .Advertisements
+                .OrderByDescending(a => a.Id)
+                .Select( a => new AdvertismentListingViewModel
+                {
+                    Id = a.Id,
+                    Make = a.Make,
+                    Model = a.Model,
+                    ImageUrl = a.ImageUrl,
+                    Price = a.Price
+                })
+                .ToList();
+
+            return View(advertisments);
+        }
+
         [HttpPost]
         public IActionResult Add(AddAdvertisementFormModel advertisement)
         {
@@ -86,7 +104,7 @@
             this.data.Advertisements.Add(advertisementData);
             this.data.SaveChanges();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction(nameof(All));
         }
 
         private IEnumerable<VehicleTypeViewModel> GetVehicleTypes()

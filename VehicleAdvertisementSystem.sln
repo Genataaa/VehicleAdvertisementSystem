@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleAdvertisementSystem", "VehicleAdvertisementSystem\VehicleAdvertisementSystem.csproj", "{097471F3-CC78-4F81-8FBF-8E6014FCBD1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehicleAdvertisementSystem", "VehicleAdvertisementSystem\VehicleAdvertisementSystem.csproj", "{097471F3-CC78-4F81-8FBF-8E6014FCBD1B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DAD98B9F-D23B-4BDE-A203-4C7FB383C624}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
